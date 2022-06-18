@@ -15,7 +15,7 @@ const withPopup = (WrappedComponent: any) => (props: any) => {
   return (
     <section className='Popup' data-testid='popup-component'>
       <div>
-        <WrappedComponent />
+        <WrappedComponent {...props} />
         <button className='replay' onClick={handleClick}>
           Replay
         </button>

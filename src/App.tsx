@@ -29,7 +29,7 @@ const App = () => {
 
   let popup: any;
 
-  if (result) {
+  if (result && game) {
     if (result === 'won') {
       popup = <WinnedPopup />;
     } else if (result === 'lost') {
