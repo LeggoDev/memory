@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f7fd;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  & h1 {
+    color: #000112;
+  }
+
+  & .play,
+  & .replay {
+    background-color: #635fc7;
+    font-weight: 700;
+    font-size: 0.813em;
+    line-height: 1.438em;
+    padding: 10px 50px;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  & .play {
+    margin-top: 5vh;
+  }
+}

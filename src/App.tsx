@@ -1,26 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider, useSelector, useDispatch } from 'react-redux';
+import { store, RootState } from './redux/store';
 
-function App() {
+import { launchGame } from './redux/features/GameSlice';
+
+import Game from './components/layouts/Game';
+import WinnedPopup from './components/WinnedPopup';
+import LostPopup from './components/LostPopup';
+
+import './scss/main.scss';
+
+const AppWrapper = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
+
+const App = () => {
+  const game = useSelector((state: RootState) => state.game.value);
+  const result = useSelector((state: RootState) => state.result.value);
+  const dispatch = useDispatch();
+
+  const handleClick: any = (): void => {
+    dispatch(launchGame());
+  };
+
+  let popup: any;
+
+  if (result) {
+    if (result === 'won') {
+      popup = <WinnedPopup />;
+    } else {
+      popup = <LostPopup />;
+    }
+  }
+
+  return (
+    <div className='App'>
+      <h1>Memory Game</h1>
+      {game ? (
+        <Game />
+      ) : (
+        <button className='play' onClick={handleClick}>
+          Let's play !
+        </button>
+      )}
+      {popup}
     </div>
   );
-}
+};
 
-export default App;
+export default AppWrapper;
