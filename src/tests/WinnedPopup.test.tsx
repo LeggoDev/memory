@@ -26,6 +26,6 @@ it('Should render the replay button', () => {
 
   const buttonElement = screen.getAllByRole('button');
   expect(buttonElement[0]).toBeInTheDocument();
-  expect(buttonElement[0].textContent).toBe('Rejouer');
+  expect(buttonElement[0].textContent).toBe('Replay');
   expect(buttonElement[0]).toHaveClass('replay');
 });

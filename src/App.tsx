@@ -32,8 +32,10 @@ const App = () => {
   if (result) {
     if (result === 'won') {
       popup = <WinnedPopup />;
-    } else {
+    } else if (result === 'lost') {
       popup = <LostPopup />;
+    } else {
+      popup = null;
     }
   }
 

@@ -8,8 +8,8 @@ const withPopup = (WrappedComponent: any) => (props: any) => {
   const dispatch = useDispatch();
 
   const handleClick = (): void => {
-    dispatch(restartGame());
     dispatch(launchGame());
+    dispatch(restartGame());
   };
 
   return (
@@ -17,7 +17,7 @@ const withPopup = (WrappedComponent: any) => (props: any) => {
       <div>
         <WrappedComponent />
         <button className='replay' onClick={handleClick}>
-          Rejouer
+          Replay
         </button>
       </div>
     </section>
