@@ -3,8 +3,8 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 1em;
-  width: 28.9vw;
-  height: 51.4vh;
+  width: 500px;
+  height: 500px;
   margin-top: 5vh;
   border-radius: 10px;
 
@@ -43,6 +43,13 @@
       animation: 0.5s hideImage linear;
       transition: transform 0.5s;
     }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Game {
+    width: 300px;
+    height: 300px;
   }
 }
 
